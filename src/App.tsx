@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import LoginProgress from "./components/LoginProgress";
-import AuthProvider from "./Providers/auth/AuthProvider";
+import AuthProvider from "./providers/auth/AuthProvider";
 
 function App() {
   const [step, setStep] = useState<number>(0);
