@@ -1,6 +1,10 @@
+import { useEffect, useState } from "react";
+import LoginProgress from "./components/LoginProgress";
 import AuthProvider from "./Providers/auth/AuthProvider";
 
 function App() {
+  const [step, setStep] = useState<number>(0);
+
   const handleLogIn = () => {
     console.log("login");
   };
@@ -10,8 +14,10 @@ function App() {
   };
 
   return (
-    <AuthProvider handleLogIn={handleLogIn} handleLogOut={handleLogOut}>
-      <div className="App"></div>;
+    <AuthProvider>
+      <div className="mobileOnly">
+        <LoginProgress progress={step} />
+      </div>
     </AuthProvider>
   );
 }
