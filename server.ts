@@ -30,7 +30,7 @@ createServer({
     this.post("/login/type2", async (schema, req) => {
       const { token } = JSON.parse(req.requestBody);
 
-      await wait(2000);
+      await wait(5000);
 
       if (!token2DB[token]) {
         return new Response(404, {}, { message: "Invalid Token" });
