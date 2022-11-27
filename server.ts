@@ -18,6 +18,8 @@ createServer({
     this.post("/login/type1", async (schema, req) => {
       const { userName } = JSON.parse(req.requestBody);
 
+      await wait(2000);
+
       if (!token1DB[userName]) {
         return new Response(404, {}, { message: "Invalid Username" });
       }
@@ -27,6 +29,8 @@ createServer({
 
     this.post("/login/type2", async (schema, req) => {
       const { userName } = JSON.parse(req.requestBody);
+
+      await wait(2000);
 
       if (!token2DB[userName]) {
         return new Response(404, {}, { message: "Invalid Username" });
