@@ -11,7 +11,7 @@ const token1DB = { sunghyeon: token1 };
 
 const token2 = "token2token2";
 
-const token2DB = { sunghyeon: token2 };
+const token2DB = { token1token1: token2 };
 
 createServer({
   routes() {
@@ -24,19 +24,19 @@ createServer({
         return new Response(404, {}, { message: "Invalid Username" });
       }
 
-      return new Response(200, {}, { token: token1 });
+      return new Response(200, {}, { token: token1DB[userName] });
     });
 
     this.post("/login/type2", async (schema, req) => {
-      const { userName } = JSON.parse(req.requestBody);
+      const { token } = JSON.parse(req.requestBody);
 
       await wait(2000);
 
-      if (!token2DB[userName]) {
-        return new Response(404, {}, { message: "Invalid Username" });
+      if (!token2DB[token]) {
+        return new Response(404, {}, { message: "Invalid Token" });
       }
 
-      return new Response(200, {}, { token: token1 });
+      return new Response(200, {}, { token: token2DB[token] });
     });
   },
 });
