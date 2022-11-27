@@ -7,11 +7,11 @@ const wait = (delay: number) =>
 
 const token1 = "token1token1";
 
-const token1DB = { sunghyeon: token1 };
+const token1DB: { [key: string]: string } = { sunghyeon: token1 };
 
 const token2 = "token2token2";
 
-const token2DB = { token1token1: token2 };
+const token2DB: { [key: string]: string } = { token1token1: token2 };
 
 createServer({
   routes() {
